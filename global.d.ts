@@ -1,7 +1,7 @@
 
 /**
  * The options
- * 
+ *
  * @since 0.3.0
  */
 declare namespace timer {
@@ -27,7 +27,7 @@ declare namespace timer {
             /**
              * Replace the host name with site name which is detected automatically from the title of site homepages,
              * or modified manually by the user
-             * 
+             *
              * @since 0.5.0
              */
             displaySiteName: boolean
@@ -44,38 +44,38 @@ declare namespace timer {
         type AppearanceOption = {
             /**
              * Whether to display the whitelist button in the context menu
-             * 
+             *
              * @since 0.3.2
              */
             displayWhitelistMenu: boolean
             /**
              * Whether to display the badge text of focus time
-             * 
+             *
              * @since 0.3.3
              */
             displayBadgeText: boolean
             /**
              * The language of this extension
-             * 
+             *
              * @since 0.8.0
              */
             locale: LocaleOption
             /**
              * Whether to print the info in the console
-             * 
+             *
              * @since 0.8.6
              */
             printInConsole: boolean
             /**
              * The state of dark mode
-             * 
+             *
              * @since 1.1.0
              */
             darkMode: DarkMode
 
             /**
              * The range of seconds to turn on dark mode. Required if {@param darkMode} is 'timed'
-             * 
+             *
              * @since 1.1.0
              */
             darkModeTimeStart?: number
@@ -89,7 +89,7 @@ declare namespace timer {
             countWhenIdle: boolean
             /**
              * Whether to collect the site name
-             * 
+             *
              * @since 0.5.0
              */
             collectSiteName: boolean
@@ -98,6 +98,12 @@ declare namespace timer {
              * @since 0.7.0
              */
             countLocalFiles: boolean
+        }
+
+        type BackupMode = 'off' | 'gist' | 'google'
+
+        type BackupOption = {
+            mode: BackupMode
         }
 
         type AllOption = PopupOption & AppearanceOption & StatisticsOption
@@ -141,14 +147,14 @@ declare namespace timer {
 
         /**
          * Time waste per day
-         * 
+         *
          * @since 0.0.1
          */
         type Result = { [item in timer.stat.Dimension]: number }
 
         /**
          * Waste data
-         * 
+         *
          * @since 0.3.3
          */
         type ResultSet = { [host: string]: Result }
@@ -168,15 +174,15 @@ declare namespace timer {
         type Row = RowKey & Result & {
             /**
              * The merged domains
-             * 
+             *
              * Can't be empty if merged
-             * 
+             *
              * @since 0.1.5
              */
             mergedHosts: Row[]
             /**
              * Icon url
-             * 
+             *
              * Must be undefined if merged
              */
             iconUrl?: string

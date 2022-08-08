@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2021 Hengyang Zhang
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -60,7 +60,23 @@ export type OptionMessage = {
         collectSiteName: string
         siteNameUsage: string
         siteName: string
-    }
+    },
+    backup:{
+        title: string,
+        options: {
+            off: string,
+            gist: string,
+            google: string
+        },
+        gist: {
+            token: string,
+            gistId: string
+        },
+        google: {
+            username: string,
+            password: string
+        }
+    },
     resetButton: string
     resetSuccess: string
     defaultValue: string
@@ -118,6 +134,22 @@ const _default: Messages<OptionMessage> = {
             siteName: '网站的名称',
             siteNameUsage: '数据只存放在本地，将代替域名用于展示，增加辨识度。当然您可以自定义每个网站的名称'
         },
+        backup: {
+            title: '备份方式',
+            options:{
+                off: '关闭',
+                gist: 'GIST',
+                google: 'Google网盘',
+            },
+            gist: {
+                token: 'TOKEN',
+                gistId: 'GIST ID',
+            },
+            google: {
+                username: '账号',
+                password: '密码'
+            },
+        },
         resetButton: '恢复默认',
         resetSuccess: '成功重置为默认值',
         defaultValue: '默认值： {default}'
@@ -172,6 +204,22 @@ const _default: Messages<OptionMessage> = {
             collectSiteName: '{input}  訪問網站主頁時，是否自動收集 {siteName} {siteNameUsage}',
             siteName: '網站的名稱',
             siteNameUsage: '數據隻存放在本地，將代替域名用於展示，增加辨識度。當然您可以自定義每個網站的名稱'
+        },
+        backup:{
+            title: "備份方式",
+            options:{
+                off: '关闭',
+                gist: 'GIST',
+                google: 'Google网盘',
+            },
+            gist: {
+                token: 'TOKEN',
+                gistId: 'GIST ID',
+            },
+            google: {
+                username: '账号',
+                password: '密码'
+            },
         },
         resetButton: '恢複默認',
         resetSuccess: '成功重置爲默認值',
@@ -229,6 +277,22 @@ const _default: Messages<OptionMessage> = {
             siteNameUsage: 'The data is only stored locally and will be displayed instead of the URL to increase the recognition.'
                 + 'Of course, you can also customize the name of each site.'
         },
+        backup:{
+            title: 'Backup Type',
+            options:{
+                off: '关闭',
+                gist: 'GIST',
+                google: 'Google网盘',
+            },
+            gist: {
+                token: 'TOKEN',
+                gistId: 'GIST ID',
+            },
+            google: {
+                username: '账号',
+                password: '密码'
+            },
+        },
         resetButton: 'Reset',
         resetSuccess: 'Reset to default successfully!',
         defaultValue: 'Default: {default}'
@@ -284,6 +348,22 @@ const _default: Messages<OptionMessage> = {
             siteName: 'サイト名',
             siteNameUsage: 'データはローカルにのみ存在し、認識を高めるためにホストの代わりに表示に使用されます。'
                 + 'もちろん、各Webサイトの名前をカスタマイズできます。'
+        },
+        backup:{
+          title: 'Backup',
+            options:{
+                off: '关闭',
+                gist: 'GIST',
+                google: 'Google网盘',
+            },
+            gist: {
+                token: 'TOKEN',
+                gistId: 'GIST ID',
+            },
+            google: {
+                username: '账号',
+                password: '密码'
+            },
         },
         resetButton: 'リセット',
         resetSuccess: 'デフォルトに正常にリセット',

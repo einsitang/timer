@@ -1,7 +1,12 @@
 import LimitDatabase from "@db/limit-database"
 import storage from "../__mock__/storage"
+import GistClient from "gist-client"
 
+const gistClient = new GistClient()
 const db = new LimitDatabase(storage.local)
+
+const githubToken = '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'
+gistClient.setToken(githubToken)
 
 describe('archived-database', () => {
     beforeEach(async () => storage.local.clear())
@@ -30,6 +35,21 @@ describe('archived-database', () => {
         await db.remove('123')
 
         expect((await db.all()).length).toEqual(0)
+    })
+
+    test("gist",async ()=>{
+        console.debug('get gist by id')
+        const gist = await gistClient.getOneById('ad4929f271e54d73371d3f31a7a5cb16')
+        console.log('gist detail ',gist)
+        await gistClient.update("ad4929f271e54d73371d3f31a7a5cb16",{
+            "files":{
+                "20220808":{
+                    "content":"test"
+                }
+            },
+            "description":new Date().getTime() + '',
+            "public":false
+        })
     })
 
     test("update waste", async () => {

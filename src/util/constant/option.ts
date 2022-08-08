@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2021 Hengyang Zhang
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -27,7 +27,7 @@ export function defaultAppearance(): timer.option.AppearanceOption {
         printInConsole: true,
         darkMode: "off",
         // 6 PM - 6 AM
-        // 18*60*60 
+        // 18*60*60
         darkModeTimeStart: 64800,
         // 6*60*60
         darkModeTimeEnd: 21600,
@@ -39,5 +39,11 @@ export function defaultStatistics(): timer.option.StatisticsOption {
         countWhenIdle: false,
         collectSiteName: true,
         countLocalFiles: false
+    }
+}
+
+export function defaultBackup(): timer.option.BackupOption{
+    return {
+        mode: 'off'
     }
 }

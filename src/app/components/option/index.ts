@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2021 Hengyang Zhang
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -10,6 +10,7 @@ import { defineComponent, h, Ref, ref } from "vue"
 import Popup from "./components/popup"
 import Appearance from "./components/appearance"
 import Statistics from "./components/statistics"
+import Backup from "./components/backup"
 import './style'
 import { ElIcon, ElMessage, ElTabPane, ElTabs } from "element-plus"
 import { t } from "@app/locale"
@@ -17,7 +18,7 @@ import { Refresh } from "@element-plus/icons-vue"
 import { useRoute, useRouter } from "vue-router"
 const resetButtonName = "reset"
 const initialParamName = "i"
-const allCategories = ["appearance", "statistics", "popup"] as const
+const allCategories = ["appearance", "statistics", "popup", "backup"] as const
 type _Category = typeof allCategories[number]
 
 function initWithQuery(tab: Ref<_Category>) {
@@ -40,7 +41,8 @@ const _default = defineComponent({
         const paneRefMap: { [key in _Category]: Ref } = {
             appearance: ref(),
             statistics: ref(),
-            popup: ref()
+            popup: ref(),
+            backup: ref(),
         }
         const router = useRouter()
         return () => h(ContentContainer, () => h(ElTabs, {
@@ -86,6 +88,13 @@ const _default = defineComponent({
                 name: "popup" as _Category
             }, () => h(Popup, {
                 ref: paneRefMap.popup
+            })),
+            // Backup
+            h(ElTabPane, {
+                label: t(msg => msg.option.backup.title),
+                name: "backup" as _Category
+            }, () => h(Backup, {
+                ref: paneRefMap.backup
             })),
             // Refresh button
             h(ElTabPane, { label: t(msg => msg.option.resetButton), name: resetButtonName }, {
